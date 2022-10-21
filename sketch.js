@@ -9,8 +9,8 @@ var r = 3;
 let pos = 0;
 let p = 0;
 var phi;
-const CANVAS_WIDTH = 600;
-const CANVAS_HEIGHT = 600;
+var CANVAS_WIDTH;
+var CANVAS_HEIGHT;
 let clockwise;
 let easing = 0.05;
 
@@ -25,11 +25,14 @@ function mouseWheel(event) {
   pos -= event.delta;
 }
 function turnLeft() {
-  pos += 180;
+  pos += 90;
+  pos += 180 - (pos % 90);
 }
 //function turnRight(){pos -= 90}
 
 function setup() {
+  CANVAS_HEIGHT = windowHeight * 0.9;
+  CANVAS_WIDTH = windowWidth * 0.9;
   createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   angleMode(DEGREES);
   initfib();
