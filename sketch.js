@@ -4,7 +4,7 @@ let scale = 1;
 let minScale;
 let maxScale;
 const color = "#ffffff";
-const fibLen = 25;
+const fibLen = 10;
 var r = 3;
 let pos = 0;
 let p = 0;
@@ -12,7 +12,7 @@ var phi;
 var CANVAS_WIDTH;
 var CANVAS_HEIGHT;
 let clockwise;
-let easing = 0.05;
+let easing = 0.1;
 
 function initfib() {
   for (let i = 0; i < 25; i++) {
@@ -25,8 +25,8 @@ function mouseWheel(event) {
   pos -= event.delta;
 }
 function turnLeft() {
-  pos += 90;
-  pos += 180 - (pos % 90);
+  pos += 180;
+  pos -= pos % 180;
 }
 //function turnRight(){pos -= 90}
 
@@ -43,7 +43,7 @@ function setup() {
   clockwise = createButton("Next");
   clockwise.position(CANVAS_WIDTH, CANVAS_HEIGHT);
   clockwise.mousePressed(turnLeft);
-  //antiwise = createButton('Right')
+  //antiwise = createButton('Right')S
   //antiwise.position(0, CANVAS_HEIGHT)
   //antiwise.mousePressed(turnRight)
 }
