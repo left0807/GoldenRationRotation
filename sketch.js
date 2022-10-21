@@ -6,7 +6,7 @@ let maxScale;
 const color = "#ffffff";
 const fibLen = 10;
 var r = 3;
-let pos = 0;
+let pos = 1;
 let p = 0;
 var phi;
 var CANVAS_WIDTH;
