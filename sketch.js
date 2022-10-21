@@ -51,7 +51,8 @@ function setup() {
 function draw() {
   var dp = pos - p;
   p += dp * easing;
-
+  if(p!=0)
+  {
   translate(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
   rotate(-p);
 
@@ -71,6 +72,6 @@ function draw() {
   } else {
     scale += ((dp * easing) / 360) * 4 * phi;
   }
-
+  }
   //print(pos)
 }
