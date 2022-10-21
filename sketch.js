@@ -6,7 +6,7 @@ let maxScale;
 const color = "#ffffff";
 const fibLen = 10;
 var r = 3;
-let pos = 1;
+let pos = 0.01;
 let p = 0;
 var phi;
 var CANVAS_WIDTH;
@@ -28,7 +28,10 @@ function turnLeft() {
   pos += 180;
   pos -= pos % 180;
 }
-//function turnRight(){pos -= 90}
+function turnRight(){
+  pos -= 180;
+  pos -= pos%180;
+}
 
 function setup() {
   CANVAS_HEIGHT = windowHeight * 0.9;
@@ -43,15 +46,15 @@ function setup() {
   clockwise = createButton("Next");
   clockwise.position(CANVAS_WIDTH, CANVAS_HEIGHT);
   clockwise.mousePressed(turnLeft);
-  //antiwise = createButton('Right')S
-  //antiwise.position(0, CANVAS_HEIGHT)
-  //antiwise.mousePressed(turnRight)
+  antiwise = createButton('Previous');
+  antiwise.position(0, CANVAS_HEIGHT)
+  antiwise.mousePressed(turnRight)
 }
 
 function draw() {
   var dp = pos - p;
   p += dp * easing;
-  if(p!=0)
+  if(dp!=0)
   {
   translate(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
   rotate(-p);
@@ -70,7 +73,7 @@ function draw() {
     initfib();
     scale = 1;
   } else {
-    scale += ((dp * easing) / 360) * 4 * phi;
+    scale += ((dp * easing) / 90) * phi;
   }
   }
   //print(pos)
