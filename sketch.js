@@ -25,14 +25,14 @@ function mouseWheel(event) {
   pos -= event.delta;
 }
 function turnLeft() {
-  pos += 180;
-  pos += 180 - (pos % 180);
+  pos += 90;
+  pos += 180 - (pos % 90);
 }
 //function turnRight(){pos -= 90}
 
 function setup() {
-  CANVAS_HEIGHT = windowHeight;
-  CANVAS_WIDTH = windowWidth;
+  CANVAS_HEIGHT = windowHeight * 0.9;
+  CANVAS_WIDTH = windowWidth * 0.9;
   createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   angleMode(DEGREES);
   initfib();
