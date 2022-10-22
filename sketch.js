@@ -4,7 +4,7 @@ let scale = 1;
 let minScale;
 let maxScale;
 const color = "#ffffff";
-const fibLen = 27;
+const fibLen = 20;
 var r = 3;
 let pos = 0.01;
 let p = 0;
@@ -14,6 +14,7 @@ var CANVAS_HEIGHT;
 let clockwise;
 let easing = 0.1;
 var cnv;
+var textscale = 1;
 
 var Blog = {
   title : "Robot team is rubbish",
@@ -32,8 +33,8 @@ function mouseWheel(event) {
   pos -= event.delta;
 }
 function turnLeft() {
-  pos += 180;
-  pos -= pos % 180;
+  pos += 360;
+  pos -= pos % 360;
 }
 function turnRight(){
   pos -= 180;
@@ -83,7 +84,7 @@ function draw() {
   for (let i = 0; i < fibs.length; i++) {
     const scaledFib = fibs[i] * scale;
     fill(scaledFib);
-    //stroke(255 - scaledFib)
+    stroke(255 - scaledFib)
 
     rect(0, 0, scaledFib, scaledFib);
     arc(scaledFib, 0, 2 * scaledFib, 2 * scaledFib, 90, 180);
@@ -94,9 +95,8 @@ function draw() {
     //rotate(-90);
     
     fill(255 -scaledFib)
-    textSize(scale*10)
     for(let j = 1; j <= 10; j++){
-      text(j + Blog.text, -scaledFib , 0);
+      line(-scaledFib, 0, -scaledFib+20, 0)
       //translate(0, scaledFib/10);
       rotate(-9);
     }
