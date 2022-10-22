@@ -6,13 +6,13 @@ let maxScale;
 const color = "#ffffff";
 const fibLen = 20;
 var r = 3;
-let pos = 0.01;
+let pos = 0.3;
 let p = 0;
 var phi;
 var CANVAS_WIDTH;
 var CANVAS_HEIGHT;
 let clockwise;
-let easing = 0.1;
+let easing = 0.3;
 var cnv;
 var textscale = 1;
 
@@ -83,10 +83,12 @@ function draw() {
 
   for (let i = 0; i < fibs.length; i++) {
     const scaledFib = fibs[i] * scale;
-    fill(scaledFib);
+    fill(scaledFib*0.5);
     stroke(255 - scaledFib)
-
     rect(0, 0, scaledFib, scaledFib);
+    fill(255)
+    text(i, 0, 0);
+    
     arc(scaledFib, 0, 2 * scaledFib, 2 * scaledFib, 90, 180);
 
     translate(scaledFib, 0);
@@ -109,8 +111,10 @@ function draw() {
     initfib();
     scale = 1;
   } else {
-    scale += ((dp * easing) / 90) * phi;
+    scale = phi ** (p%360/90)
+    scale += (dp * easing)/90 * phi;
   }
   }
   //print(pos)
+  
 }
