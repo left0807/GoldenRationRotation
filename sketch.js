@@ -3,7 +3,7 @@ let fibs = [1, 1];
 let scale = 1;
 let minScale;
 let maxScale;
-const color = "#ffffff";
+const color = 0;
 const fibLen = 20;
 var r = 3;
 let pos = 0.3;
@@ -12,7 +12,7 @@ var phi;
 var CANVAS_WIDTH;
 var CANVAS_HEIGHT;
 let clockwise;
-let easing = 0.3;
+let easing = 0.1;
 var cnv;
 var textscale = 1;
 
@@ -69,6 +69,8 @@ function windowResized() {
   CANVAS_WIDTH = windowWidth * 0.9;
 
   cnv = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);  
+  cnv.style('display', 'block');
+
   centerCanvas();
 }
 
@@ -91,18 +93,8 @@ function draw() {
     
     arc(scaledFib, 0, 2 * scaledFib, 2 * scaledFib, 90, 180);
 
-    translate(scaledFib, 0);
-
-
-    //rotate(-90);
-    
-    fill(255 -scaledFib)
-    for(let j = 1; j <= 10; j++){
-      line(-scaledFib, 0, -scaledFib+20, 0)
-      //translate(0, scaledFib/10);
-      rotate(-9);
-    }
-    translate(-scaledFib, 0);
+    translate(scaledFib, scaledFib);
+    rotate(-90);
 
   }
 
